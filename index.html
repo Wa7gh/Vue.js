@@ -20,14 +20,67 @@
         <p v-html="websiteTag"></p>
         <h1>EVENT</h1>
 
-        <button v-on:click="add(1)"> Add a year</button>
-        <button v-on:click="subtract(1)"> Subtract a year</button>
-        <button v-on:dblclick="add(10)"> Add a year</button>
-        <button v-on:dblclick="subtract(10)"> Subtract a year</button>
+        <button @click.once="add(1)"> Add a year</button>
+        <button @click="subtract(1)"> Subtract a year</button>
+        <button @dblclick="add(10)"> Add a year</button>
+        <button @dblclick="subtract(10)"> Subtract a year</button>
+         <p>when click on </p>
+        <a  @click.prevent="click" href="https://www.linkedin.com/in/wejdan-alghamdi/" > try click with prevent defult behavior </a>
 
         <p> My age is {{age}}</p>
-        <div id="canvas" v-on:mousemove="UpdateXY">{{x}}, {{y}}</div>
+        <div id="canvas" @mousemove="updateXY">{{x}}, {{y}}</div>
 
+        <h1> Keyboard Events </h1>
+        <label>Name:</label>
+        <input type="text" v-on:Keyup.enter="logName"/>
+
+        <label>Age:</label>
+        <input type="text" v-on:Keyup.enter="logAge"/>
+
+        <h2> handling Events</h2>
+        <p>{{message}}</p>
+        <input  v-model="message"/>
+
+        <p>--------------------------</p>
+        <span v-if="seen">test v-if : only show the text when the properity = true </span>
+
+        <p>--------------------------</p>
+        <h2> for loop in vue </h2>
+        <ol>
+        <li v-for="todo in todos">
+            {{todo.text}}
+            
+        </li>
+        </ol>
+
+        <p>--------------------------</p>
+
+        <p>{{messages}}</p>
+        <button v-on:click="reversmessage">  Revers Message </button>
+    
+        <p>--------------------------</p> 
+
+        <ol>
+            <li>
+               <todo-item></todo-item>
+            </li>
+        </ol>
+
+        
+        <p>---------------------------</p>
+
+        <h2>Computed Properties</h2>
+<button v-on:click="a++">Add A</button>
+<button v-on:click="b++">Add B</button>
+<p> Age + A = {{ addA }} </p>
+<p> Age + B = {{ addB }} </p>
+
+       <p>---------------------------</p>
+<h2>Dynamic CSS Classes</h2>
+<p>Example1</p>
+<div v-on:class="{red: true, blue: true}"></div>
+
+<p>Example2</p>
     </div>
     <script src= "app.js"></script>
 </body>
